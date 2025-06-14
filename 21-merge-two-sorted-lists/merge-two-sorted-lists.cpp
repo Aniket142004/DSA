@@ -1,36 +1,35 @@
-
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
 class Solution {
 public:
-    ListNode* mergeTwoLists(ListNode* tempa, ListNode* tempb) {
-        ListNode*a =tempa;
-         ListNode*b =tempb;
-          if (tempa == NULL) return tempb;
-        if (tempb == NULL) return tempa;
+    ListNode* mergeTwoLists(ListNode* a, ListNode* b) {
+        ;
+           ListNode* c = new  ListNode (-1);
+            ListNode* tempc=c;
+            while(a!= NULL && b!= NULL){
+                if(a->val <= b->val){
+                    tempc->next = a;
+                    a= a->next ;
+                    tempc =tempc->next;
+                }
+                else{
+                    tempc->next = b;
+                    b= b->next ;
+                    tempc =tempc->next;
+                }
+            }
+            if(a==NULL) tempc->next=b;
+            if(b== NULL) tempc->next = a;
 
-
-         ListNode* tempc = new  ListNode(10);
-          ListNode*c =tempc;
-         while(a!=NULL && b!=NULL){
-            if(a->val<=b->val){
-                ListNode* t = new  ListNode(a->val);
-                c->next=t;
-                c=t;
-                a=a->next;
-            }
-            else{
-                 ListNode* t = new  ListNode(b->val);
-                 c->next =t;
-                 b=b->next;
-                 c=t;
-            }
-            if(a!=NULL){
-                c->next=a;
-            }
-            else{
-                c->next=b;
-            }
-        }
-        return tempc->next;
-
+            return c->next;
+        
     }
 };
