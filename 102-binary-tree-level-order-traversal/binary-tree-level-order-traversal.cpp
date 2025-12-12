@@ -20,7 +20,7 @@ public:
             vector<int>v;
             nthlevel(root,1,i,v);
             ans.push_back(v);
-            cout<<endl;
+            // cout<<endl;
         }
     }
     vector<vector<int>> levelOrder(TreeNode* root) {
